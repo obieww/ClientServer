@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RibbonClient(name = "application-server", configuration = ApplicationServerConfig.class)
 @CrossOrigin
-@RequestMapping("/api")
+@RequestMapping("/api/user")
 public class UserController {
 
     private RestTemplate restTemplate;
@@ -27,4 +27,21 @@ public class UserController {
     public ResponseEntity<User> register(@RequestBody User user) {
         return restTemplate.postForEntity("http://application-server/api/user/register", user, User.class);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<User> login(@RequestBody User user) {
+        return restTemplate.postForEntity("http://application-server/api/user/login", user, User.class);
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<Boolean> delete(@RequestBody User user) {
+        return restTemplate.postForEntity("http://application-server/api/user/delete", user, Boolean.class);
+    }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<User> getUser(@PathVariable String userId) {
+        return restTemplate.getForEntity("http://application-server/api/user/{userId}", User.class, userId);
+    }
+
+
 }
