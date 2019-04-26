@@ -56,5 +56,22 @@ public class ObiewController {
     public ResponseEntity<Obiew> add(@RequestBody Obiew obiew) {
         return restTemplate.postForEntity(uriBase + "/post", obiew, Obiew.class);
     }
+
+    @PostMapping("/comment")
+    public ResponseEntity<Obiew> comment(@RequestBody Obiew comment) {
+        return restTemplate.postForEntity(uriBase + "/comment", comment, Obiew.class);
+    }
+
+
+    @DeleteMapping("/{obiewId}")
+    public ResponseEntity<Boolean> deleteById(@PathVariable String obiewId) {
+        return restTemplate.exchange(
+                uriBase + "/{obiewId}",
+                HttpMethod.DELETE,
+                null,
+                Boolean.class,
+                obiewId
+        );
+    }
 }
 
