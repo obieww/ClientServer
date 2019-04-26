@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: client_server
+
+server:
+  port: 8888
+
+
+application-server:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: localhost:8090,localhost:8091,localhost:8092
+    ServerListRefreshInterval: 15000
