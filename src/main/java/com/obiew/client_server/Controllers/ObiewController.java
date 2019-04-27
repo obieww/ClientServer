@@ -1,6 +1,7 @@
 package com.obiew.client_server.Controllers;
 
 
+import com.obiew.client_server.Entities.Like;
 import com.obiew.client_server.Entities.Obiew;
 import com.obiew.client_server.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,10 @@ public class ObiewController {
         return restTemplate.postForEntity(uriBase + "/comment", comment, Obiew.class);
     }
 
+    @PostMapping("/like")
+    public ResponseEntity<Like> comment(@RequestBody Like like) {
+        return restTemplate.postForEntity(uriBase + "/like", like, Like.class);
+    }
 
     @DeleteMapping("/{obiewId}")
     public ResponseEntity<Boolean> deleteById(@PathVariable String obiewId) {

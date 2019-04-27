@@ -10,5 +10,5 @@ application-server:
   ribbon:
     eureka:
       enabled: false
-    listOfServers: localhost:8090,localhost:8091
+    listOfServers: localhost:8090,localhost:8091,localhost:8092
     ServerListRefreshInterval: 2000
