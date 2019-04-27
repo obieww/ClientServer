@@ -64,7 +64,7 @@ public class ObiewController {
     }
 
     @PostMapping("/like")
-    public ResponseEntity<Like> comment(@RequestBody Like like) {
+    public ResponseEntity<Like> like(@RequestBody Like like) {
         return restTemplate.postForEntity(uriBase + "/like", like, Like.class);
     }
 
