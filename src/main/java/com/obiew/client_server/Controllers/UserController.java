@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 @RibbonClient(name = "application-server", configuration = ApplicationServerConfig.class)
 @CrossOrigin
 @RequestMapping("/api/user")
-public class UserController {
+public class UserController{
 
     private RestTemplate restTemplate;
 
